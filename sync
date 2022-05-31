@@ -1,0 +1,14 @@
+#!/bin/bash
+
+gstatus=`git status --porcelain`
+
+if [ ${#gstatus} -ne 0 ]
+then
+
+    git add --all
+    git commit -m "Auto commit: `date '+%d/%m/%Y %H:%M:%S'`"
+
+	git pull origin master
+    git push origin master
+
+fi
